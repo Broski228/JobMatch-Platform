@@ -1,0 +1,9 @@
+<div class="page-bg auth-wrap">
+  <div class="glass panel auth-card">
+    <h1>Войти</h1>
+    <input class="form-control" [(ngModel)]="login" placeholder="Логин">
+    <input class="form-control" [(ngModel)]="password" type="password" placeholder="Пароль">
+    <button class="main-btn light full" (click)="submit()">Войти</button>
+    <a routerLink="/register">Нет аккаунта? Зарегистрироваться</a>
+  </div>
+</div>

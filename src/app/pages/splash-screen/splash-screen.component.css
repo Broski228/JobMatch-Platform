@@ -1,0 +1,4 @@
+.splash-wrap { display: flex; align-items: center; justify-content: center; }
+.logo-box { animation: zoomIn 1.2s ease; }
+.logo-box img { width: 240px; height: 240px; object-fit: contain; border-radius: 28px; background: rgba(255,255,255,0.92); padding: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+@keyframes zoomIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
