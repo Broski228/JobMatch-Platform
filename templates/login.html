@@ -4,35 +4,39 @@
 <section class="auth-shell">
     <div class="auth-left">
         <div class="auth-card">
-            <div class="logo-text">Your Logo</div>
-            <h1>Sign in</h1>
-            <p class="muted">If you don’t have an account register</p>
-            <p class="switch-link">You can <a href="{% url 'register_options' %}">Register here !</a></p>
+            <div class="logo-text">Job Platform</div>
+            <h1>Вход</h1>
+            <p class="muted">Если у вас ещё нет аккаунта, зарегистрируйтесь</p>
+            <p class="switch-link">Вы можете <a href="{% url 'register_options' %}">зарегистрироваться здесь</a></p>
 
             <form method="post" class="login-form">
                 {% csrf_token %}
-                <label>Email / Логин</label>
-                <input class="input" type="text" name="username" placeholder="Enter your login">
-                <label>Password</label>
-                <input class="input" type="password" name="password" placeholder="Enter your password">
+                <label>Логин</label>
+                <input class="input" type="text" name="username" placeholder="Введите логин">
+
+                <label>Пароль</label>
+                <input class="input" type="password" name="password" placeholder="Введите пароль">
+
                 {% if error %}<div class="field-error">{{ error }}</div>{% endif %}
-                <button type="submit" class="btn primary wide">Login</button>
+
+                <button type="submit" class="btn primary wide">Войти</button>
             </form>
 
-            <div class="continue">or continue with</div>
+            <div class="continue">или продолжить через</div>
             <div class="social-row">
-                <button class="circle-btn fb">f</button>
-                <button class="circle-btn apple"></button>
-                <button class="circle-btn google">G</button>
-                <button class="circle-btn phone">📱</button>
+                <button class="circle-btn fb" type="button">f</button>
+                <button class="circle-btn apple" type="button"></button>
+                <button class="circle-btn google" type="button">G</button>
+                <button class="circle-btn phone" type="button">📱</button>
             </div>
         </div>
     </div>
+
     <div class="auth-right">
         <div class="promo-panel dark">
             <div class="promo-graphic"></div>
-            <h2>Sign in to Job Platform</h2>
-            <p>Красивый вход, регистрация и быстрый доступ к резюме и поиску специалистов.</p>
+            <h2>Вход в Job Platform</h2>
+            <p>Удобный вход, быстрая регистрация и доступ к резюме, поиску специалистов и уведомлениям.</p>
         </div>
     </div>
 </section>
