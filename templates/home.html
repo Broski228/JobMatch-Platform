@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-left">
+        <div class="logo-text">Job Platform</div>
+
+        <h1>Современная платформа для поиска работы</h1>
+
+        <p class="lead">
+            Создавайте профессиональные резюме и находите сотрудников быстро и удобно с помощью умных фильтров.
+        </p>
+
+        {% if not user.is_authenticated %}
+        <div class="hero-actions">
+            <a class="btn primary" href="{% url 'login' %}">Войти</a>
+            <a class="btn ghost" href="{% url 'register_options' %}">Регистрация</a>
+        </div>
+        {% endif %}
+
+        <div class="instruction-card">
+            <h3>Как работает платформа</h3>
+            <ol>
+                <li>Зарегистрируйтесь как работник или работодатель.</li>
+                <li>Если вы работник — создайте резюме и сохраняйте его.</li>
+                <li>Если вы работодатель — ищите специалистов через фильтр.</li>
+                <li>Добавляйте понравившихся кандидатов в избранное ❤️</li>
+                <li>При добавлении в избранное работник получает уведомление.</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="illustration-card">
+            <div class="desk"></div>
+            <div class="character">
+                <div class="head"></div>
+                <div class="body"></div>
+            </div>
+
+            <h2>Найти работу стало проще</h2>
+            <p>
+                Современный интерфейс, удобные резюме и быстрый поиск специалистов.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

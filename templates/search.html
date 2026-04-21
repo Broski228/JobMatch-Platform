@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Поиск специалистов{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1>Поиск специалистов</h1>
+        <p>Выберите нужные фильтры и нажмите найти.</p>
+    </div>
+</section>
+
+<div class="search-layout">
+    <form method="get" class="filter-card">
+        <h3>Фильтры</h3>
+        <div class="form-field"><label>{{ form.profession.label }}</label>{{ form.profession }}</div>
+        <div class="form-field"><label>{{ form.city.label }}</label>{{ form.city }}</div>
+        <div class="form-field"><label>{{ form.level.label }}</label>{{ form.level }}</div>
+        <div class="form-field"><label>{{ form.min_experience.label }}</label>{{ form.min_experience }}</div>
+        <div class="form-field"><label>{{ form.bachelor_done.label }}</label>{{ form.bachelor_done }}</div>
+        <div class="form-field"><label>{{ form.language.label }}</label>{{ form.language }}</div>
+        <button class="btn primary wide" type="submit">Найти</button>
+    </form>
+
+    <div class="results-grid">
+        {% for resume in resumes %}
+        <div class="person-card">
+            <div class="person-top">
+                {% if resume.photo %}<img src="{{ resume.photo.url }}" class="mini-photo" alt="photo">{% else %}<div class="mini-photo placeholder"></div>{% endif %}
+                <div>
+                    <h3>{{ resume.full_name }}</h3>
+                    <p>{{ resume.specialty_title }}</p>
+                    <p>{{ resume.city }} • {{ resume.profession_level|default:"—" }}</p>
+                    <p>{{ resume.experience_years }} лет опыта</p>
+                </div>
+            </div>
+            <div class="tags">
+                {% for lang in resume.spoken_languages %}<span>{{ lang }}</span>{% endfor %}
+            </div>
+            <div class="card-actions">
+                <a class="btn small ghost" href="{% url 'resume_detail' resume.pk %}">Смотреть</a>
+                <a class="btn small heart {% if resume.pk in favorite_ids %}liked{% endif %}" href="{% url 'toggle_favorite' resume.pk %}">❤</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="simple-card"><p>По вашему запросу пока ничего не найдено.</p></div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

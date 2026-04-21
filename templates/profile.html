@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Профиль{% endblock %}
+{% block content %}
+<div class="simple-card">
+    <h1>Профиль</h1>
+    <p><strong>Логин:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Роль:</strong> {{ user.profile.get_role_display }}</p>
+    {% if user.profile.company_name %}<p><strong>Компания:</strong> {{ user.profile.company_name }}</p>{% endif %}
+    {% if user.profile.phone %}<p><strong>Телефон:</strong> {{ user.profile.phone }}</p>{% endif %}
+</div>
+{% endblock %}

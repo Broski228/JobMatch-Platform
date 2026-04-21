@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-left narrow">
+        <div class="auth-card">
+            <h1>Регистрация</h1>
+
+            <p class="muted">
+                Выберите способ регистрации. Вход через Google, Apple и телефон — демонстрационные кнопки.
+                Полная регистрация доступна через кнопку «Другое».
+            </p>
+
+            <div class="social-stack">
+                <button class="social-btn" type="button">
+                    <span class="icon-circle google">G</span>
+                    Продолжить через Google
+                </button>
+
+                <button class="social-btn" type="button">
+                    <span class="icon-circle apple"></span>
+                    Продолжить через Apple
+                </button>
+
+                <button class="social-btn" type="button">
+                    <span class="icon-circle phone">📱</span>
+                    Продолжить по номеру телефона
+                </button>
+
+                <a href="{% url 'register' %}" class="social-btn primary-link">
+                    <span class="icon-circle other">✉</span>
+                    Другое (регистрация через email)
+                </a>
+            </div>
+
+            <p class="switch-link">
+                Уже есть аккаунт?
+                <a href="{% url 'login' %}">Войти</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="auth-right">
+        <div class="promo-panel">
+            <h2>Создайте аккаунт и начните карьеру</h2>
+            <p>
+                Работник создаёт резюме и находит работу.  
+                Работодатель ищет специалистов и формирует команду.
+            </p>
+        </div>
+    </div>
+</section>
+{% endblock %}

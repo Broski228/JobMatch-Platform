@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="resume-editor-page">
+    <div class="resume-editor-sheet">
+        <div class="resume-editor-header">
+            <h1>{{ title }}</h1>
+            <p>Заполните информацию для вашего резюме.</p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" class="resume-editor-form">
+            {% csrf_token %}
+
+            <div class="resume-section">
+                <h2>Личная информация</h2>
+                <div class="resume-grid two-columns">
+                    <div class="resume-field full-width">
+                        <label for="{{ form.photo.id_for_label }}">{{ form.photo.label }}</label>
+                        {{ form.photo }}
+                        {% if form.photo.errors %}
+                            <div class="field-error">{{ form.photo.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.last_name.id_for_label }}">{{ form.last_name.label }}</label>
+                        {{ form.last_name }}
+                        {% if form.last_name.errors %}
+                            <div class="field-error">{{ form.last_name.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.first_name.id_for_label }}">{{ form.first_name.label }}</label>
+                        {{ form.first_name }}
+                        {% if form.first_name.errors %}
+                            <div class="field-error">{{ form.first_name.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.middle_name.id_for_label }}">{{ form.middle_name.label }}</label>
+                        {{ form.middle_name }}
+                        {% if form.middle_name.errors %}
+                            <div class="field-error">{{ form.middle_name.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="field-error">{{ form.email.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                        {{ form.phone }}
+                        {% if form.phone.errors %}
+                            <div class="field-error">{{ form.phone.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field full-width">
+                        <label for="{{ form.address.id_for_label }}">{{ form.address.label }}</label>
+                        {{ form.address }}
+                        {% if form.address.errors %}
+                            <div class="field-error">{{ form.address.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.country.id_for_label }}">{{ form.country.label }}</label>
+                        {{ form.country }}
+                        {% if form.country.errors %}
+                            <div class="field-error">{{ form.country.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+                        {{ form.city }}
+                        {% if form.city.errors %}
+                            <div class="field-error">{{ form.city.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Профессия и опыт</h2>
+                <div class="resume-grid two-columns">
+                    <div class="resume-field">
+                        <label for="{{ form.profession.id_for_label }}">{{ form.profession.label }}</label>
+                        {{ form.profession }}
+                        {% if form.profession.errors %}
+                            <div class="field-error">{{ form.profession.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.specialty_title.id_for_label }}">{{ form.specialty_title.label }}</label>
+                        {{ form.specialty_title }}
+                        {% if form.specialty_title.errors %}
+                            <div class="field-error">{{ form.specialty_title.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.profession_level.id_for_label }}">{{ form.profession_level.label }}</label>
+                        {{ form.profession_level }}
+                        {% if form.profession_level.errors %}
+                            <div class="field-error">{{ form.profession_level.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.experience_years.id_for_label }}">{{ form.experience_years.label }}</label>
+                        {{ form.experience_years }}
+                        {% if form.experience_years.errors %}
+                            <div class="field-error">{{ form.experience_years.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field full-width">
+                        <label for="{{ form.previous_workplace.id_for_label }}">{{ form.previous_workplace.label }}</label>
+                        {{ form.previous_workplace }}
+                        {% if form.previous_workplace.errors %}
+                            <div class="field-error">{{ form.previous_workplace.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Образование</h2>
+                <div class="resume-grid two-columns">
+                    <div class="resume-field checkbox-field full-width">
+                        <label>{{ form.bachelor_done }} {{ form.bachelor_done.label }}</label>
+                        {% if form.bachelor_done.errors %}
+                            <div class="field-error">{{ form.bachelor_done.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.bachelor_university.id_for_label }}">{{ form.bachelor_university.label }}</label>
+                        {{ form.bachelor_university }}
+                        {% if form.bachelor_university.errors %}
+                            <div class="field-error">{{ form.bachelor_university.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.bachelor_start_year.id_for_label }}">{{ form.bachelor_start_year.label }}</label>
+                        {{ form.bachelor_start_year }}
+                        {% if form.bachelor_start_year.errors %}
+                            <div class="field-error">{{ form.bachelor_start_year.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.bachelor_end_year.id_for_label }}">{{ form.bachelor_end_year.label }}</label>
+                        {{ form.bachelor_end_year }}
+                        {% if form.bachelor_end_year.errors %}
+                            <div class="field-error">{{ form.bachelor_end_year.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field checkbox-field full-width">
+                        <label>{{ form.master_done }} {{ form.master_done.label }}</label>
+                        {% if form.master_done.errors %}
+                            <div class="field-error">{{ form.master_done.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.master_university.id_for_label }}">{{ form.master_university.label }}</label>
+                        {{ form.master_university }}
+                        {% if form.master_university.errors %}
+                            <div class="field-error">{{ form.master_university.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.master_specialty.id_for_label }}">{{ form.master_specialty.label }}</label>
+                        {{ form.master_specialty }}
+                        {% if form.master_specialty.errors %}
+                            <div class="field-error">{{ form.master_specialty.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field checkbox-field full-width">
+                        <label>{{ form.phd_done }} {{ form.phd_done.label }}</label>
+                        {% if form.phd_done.errors %}
+                            <div class="field-error">{{ form.phd_done.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.phd_university.id_for_label }}">{{ form.phd_university.label }}</label>
+                        {{ form.phd_university }}
+                        {% if form.phd_university.errors %}
+                            <div class="field-error">{{ form.phd_university.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.phd_specialty.id_for_label }}">{{ form.phd_specialty.label }}</label>
+                        {{ form.phd_specialty }}
+                        {% if form.phd_specialty.errors %}
+                            <div class="field-error">{{ form.phd_specialty.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h2>Навыки и информация о себе</h2>
+                <div class="resume-grid one-column">
+                    <div class="resume-field checkbox-field">
+                        <label>{{ form.has_personal_projects }} {{ form.has_personal_projects.label }}</label>
+                        {% if form.has_personal_projects.errors %}
+                            <div class="field-error">{{ form.has_personal_projects.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.projects_link.id_for_label }}">{{ form.projects_link.label }}</label>
+                        {{ form.projects_link }}
+                        {% if form.projects_link.errors %}
+                            <div class="field-error">{{ form.projects_link.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.spoken_languages.id_for_label }}">{{ form.spoken_languages.label }}</label>
+                        {{ form.spoken_languages }}
+                        {% if form.spoken_languages.errors %}
+                            <div class="field-error">{{ form.spoken_languages.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.hard_skills.id_for_label }}">{{ form.hard_skills.label }}</label>
+                        {{ form.hard_skills }}
+                        {% if form.hard_skills.errors %}
+                            <div class="field-error">{{ form.hard_skills.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="resume-field">
+                        <label for="{{ form.about_me.id_for_label }}">{{ form.about_me.label }}</label>
+                        {{ form.about_me }}
+                        {% if form.about_me.errors %}
+                            <div class="field-error">{{ form.about_me.errors|join:", " }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-actions">
+                <button type="submit" class="resume-save-btn">Сохранить резюме</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

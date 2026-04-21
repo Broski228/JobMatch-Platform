@@ -1,5 +1,0 @@
-.auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.auth-card { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: 14px; }
-.auth-card h1 { margin: 0 0 6px; }
-.full { width: 100%; }
-a { color: white; opacity: 0.8; }

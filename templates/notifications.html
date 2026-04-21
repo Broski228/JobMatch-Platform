@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Уведомления{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1>Уведомления</h1>
+        <p>Здесь вы увидите, если работодателю понравилось ваше резюме.</p>
+    </div>
+</section>
+
+<div class="cards-grid">
+    {% for note in notifications %}
+    <div class="simple-card">
+        <p>{{ note.message }}</p>
+        <small>{{ note.created_at|date:"d.m.Y H:i" }}</small>
+    </div>
+    {% empty %}
+    <div class="simple-card"><p>Пока уведомлений нет.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

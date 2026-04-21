@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Избранное{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div>
+        <h1>Избранное</h1>
+        <p>Все специалисты, которым вы поставили ❤️.</p>
+    </div>
+</section>
+
+<div class="cards-grid">
+    {% for item in favorites %}
+    <div class="person-card">
+        <div class="person-top">
+            {% if item.resume.photo %}<img src="{{ item.resume.photo.url }}" class="mini-photo" alt="photo">{% else %}<div class="mini-photo placeholder"></div>{% endif %}
+            <div>
+                <h3>{{ item.resume.full_name }}</h3>
+                <p>{{ item.resume.specialty_title }}</p>
+                <p>{{ item.resume.city }}</p>
+            </div>
+        </div>
+        <div class="card-actions">
+            <a class="btn small ghost" href="{% url 'resume_detail' item.resume.pk %}">Открыть</a>
+            <a class="btn small heart liked" href="{% url 'toggle_favorite' item.resume.pk %}">Удалить ❤</a>
+        </div>
+    </div>
+    {% empty %}
+    <div class="simple-card"><p>Пока нет избранных специалистов.</p></div>
+    {% endfor %}
+</div>
+{% endblock %}

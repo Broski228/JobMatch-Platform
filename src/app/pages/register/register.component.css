@@ -1,9 +1,0 @@
-.auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-.register-card { width: 100%; max-width: 760px; }
-.methods-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 18px; }
-.method-btn { border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); color: white; border-radius: 14px; padding: 14px; cursor: pointer; }
-.method-btn.active { border-color: #22d3ee; background: rgba(34,211,238,0.12); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
-.full { width: 100%; }
-a { display: inline-block; margin-top: 14px; color: white; opacity: 0.8; }
-@media (max-width: 700px) { .methods-grid, .form-grid { grid-template-columns: 1fr; } }
